@@ -4,6 +4,11 @@
 	box-sizing: border-box;
 }
 
+body{
+	background-color: rgb(39, 39, 39);
+} /* TOFIX da togliere, il bianco mi acceca */
+
+
 #root {
 	height: 100vh;
 	display: flex;

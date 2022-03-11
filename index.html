@@ -12,32 +12,20 @@
 	<div id="root">
 		<div class="slider">
 			<div class="slide">
-				<img src="img/01.jpg" alt="Svezia">
+				<img :src="'img/' + arrSlides[activeIndexImg].item" alt="arrSlides[activeIndexImg].title">
 				<div class="slide-contents">
-					<h2 class="slide-title">Svezia</h2>
-					<p class="slide-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.</p>
+					<h2 class="slide-title">{{arrSlides[activeIndexImg].title}}</h2>
+					<p class="slide-text">{{arrSlides[activeIndexImg].text}}</p>
 				</div>
 			</div>
 
 			<div class="thumbs">
-				<div class="thumb active">
-					<img src="img/01.jpg" alt="Svezia">
-				</div>
-				<div class="thumb">
-					<img src="img/02.jpg" alt="Svizzera">
-				</div>
-				<div class="thumb">
-					<img src="img/03.jpg" alt="Gran Bretagna">
-				</div>
-				<div class="thumb">
-					<img src="img/04.jpg" alt="Germania">
-				</div>
-				<div class="thumb">
-					<img src="img/05.jpg" alt="Paradise">
+				<div v-for = "(thumb, index) in arrSlides" class="thumb" :class="index == activeIndexImg ? 'active' : ''">
+					<img :src="'img/' + thumb.item" :alt="thumb.title">
 				</div>
 
-				<button class="btn-control btn-previus">&and;</button>
-				<button class="btn-control btn-next">&or;</button>
+				<button @click="btnPrevius" class="btn-control btn-previus">&and;</button>
+				<button @click="btnNext" class="btn-control btn-next">&or;</button>
 			</div>
 		</div>
 	</div>
